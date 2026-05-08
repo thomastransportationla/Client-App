@@ -397,26 +397,11 @@ function clearTrack(){
   document.getElementById('go-btn').classList.remove('on');
 }
 
-var infoContent = {
-  airport: {
-    title: 'Airport Pick-Up Process',
-    body: '<div class="card"><div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:16px;">Your Pick-Up Process</div><div style="margin-bottom:16px;"><div style="color:#c9a84c;font-weight:600;margin-bottom:5px;">24 Hours Before Your Trip</div><div style="font-size:13px;color:#8896b3;line-height:1.7;">You will receive a text message confirming the details of your pick-up so everything is set before you travel.</div></div><div style="margin-bottom:16px;"><div style="color:#c9a84c;font-weight:600;margin-bottom:5px;">When Your Driver is En Route</div><div style="font-size:13px;color:#8896b3;line-height:1.7;">You will receive a text with your driver's contact information and a live vehicle tracking link so you can follow along in real time.</div></div><div style="margin-bottom:16px;"><div style="color:#c9a84c;font-weight:600;margin-bottom:5px;">Upon Landing</div><div style="font-size:13px;color:#8896b3;line-height:1.7;">You'll receive another message with the driver's name, phone number, and updated tracking info. Your driver will also reach out to you directly to coordinate the pick-up.</div></div><div style="margin-bottom:16px;"><div style="color:#c9a84c;font-weight:600;margin-bottom:5px;">Take Your Time</div><div style="font-size:13px;color:#8896b3;line-height:1.7;">Our drivers understand you need to deplane, may visit the restroom, and collect your luggage. There is no need to rush.</div></div><div style="margin-bottom:16px;"><div style="color:#c9a84c;font-weight:600;margin-bottom:5px;">At LAX — Finding Your Pick-Up Point</div><div style="font-size:13px;color:#8896b3;line-height:1.7;">When you exit baggage claim, you'll notice designated pick-up points marked on the pillars — for example B1, B2, B3, and so on. Head to the nearest one.</div></div><div><div style="color:#c9a84c;font-weight:600;margin-bottom:5px;">Connecting With Your Driver</div><div style="font-size:13px;color:#8896b3;line-height:1.7;">Once you're at a pillar, let your driver know which one you're closest to. You can also share a brief description of what you're wearing to make it easier for them to spot you. Your driver will call or text you when approaching your location.</div></div></div><div class="card" style="background:rgba(201,168,76,0.06);border-color:rgba(201,168,76,0.25);margin-top:0;"><div style="font-size:13px;color:#c9a84c;font-weight:600;margin-bottom:6px;">Questions?</div><div style="font-size:13px;color:#8896b3;line-height:1.6;">Don't hesitate to reach out. We're always available to help make your trip as smooth as possible.</div></div>'
-  },
-  faq: {
-    title: 'FAQ',
-    body: '<div class="card"><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">How far in advance should I book?</div><div style="font-size:13px;color:#8896b3;line-height:1.6;margin-bottom:16px;">We recommend at least 24 hours in advance, but we do our best to accommodate last-minute requests. The sooner the better for peak travel days.</div><div class="div"></div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">What areas do you serve?</div><div style="font-size:13px;color:#8896b3;line-height:1.6;margin-bottom:16px;">We serve the greater Los Angeles area including LAX, all major cruise ports, Disneyland, and special events throughout Southern California.</div><div class="div"></div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">What if my flight is delayed?</div><div style="font-size:13px;color:#8896b3;line-height:1.6;margin-bottom:16px;">We track all flights in real time. If your flight is delayed, your driver adjusts automatically at no extra charge.</div><div class="div"></div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">Do you offer car seats?</div><div style="font-size:13px;color:#8896b3;line-height:1.6;margin-bottom:16px;">Yes! Just request a car seat or booster when booking and we will have one ready.</div><div class="div"></div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">How do I pay?</div><div style="font-size:13px;color:#8896b3;line-height:1.6;margin-bottom:16px;">Payment is handled securely through our booking system. We accept all major credit cards.</div><div class="div"></div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">Can I book for a group?</div><div style="font-size:13px;color:#8896b3;line-height:1.6;">Absolutely. We accommodate groups of all sizes. Just let us know the passenger count when booking.</div></div>'
-  },
-  about: {
-    title: 'About Us',
-    body: '<div class="card"><div style="text-align:center;padding:4px 0 16px;"><div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#c9a84c;margin-bottom:10px;">Comfortable. Safe. Reliable.</div><div style="font-size:14px;color:#fff;line-height:1.75;">Thomas Transportation is a private transportation service based in the Los Angeles area, specializing in airport transfers, Disneyland trips, cruise port pickups, and special events throughout Southern California.</div></div></div><div class="card"><div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:10px;">Our Commitment</div><div style="font-size:13px;color:#8896b3;line-height:1.75;margin-bottom:12px;">Every ride is handled with the same level of care — whether you are heading to LAX for an early morning flight or bringing the family to Disneyland. We believe getting there should be just as comfortable as the destination.</div><div style="font-size:13px;color:#8896b3;line-height:1.75;">We track your flights, communicate proactively, and show up on time — every time.</div></div><div class="card" style="background:rgba(201,168,76,0.06);border-color:rgba(201,168,76,0.25);"><div style="font-size:13px;color:#c9a84c;font-weight:600;margin-bottom:8px;">Every Ride. Every Traveler. Every Occasion.</div><div style="font-size:13px;color:#8896b3;line-height:1.65;">From solo travelers to large groups, from quick airport runs to full-day event transportation — Thomas Transportation is here for all of it.</div></div>'
-  }
-};
-
 function openInfo(type) {
-  var c = infoContent[type];
-  if (!c) return;
-  document.getElementById('info-title').textContent = c.title;
-  document.getElementById('info-body').innerHTML = c.body;
+  var el = document.getElementById('info-' + type);
+  if (!el) return;
+  document.getElementById('info-title').textContent = el.getAttribute('data-title');
+  document.getElementById('info-body').innerHTML = el.innerHTML;
   document.getElementById('modal-info').classList.add('on');
 }
 
@@ -428,5 +413,66 @@ function showToast(msg){
 }
 </script>
 
+<!-- Hidden info content -->
+
+<div style="display:none;">
+
+<div id="info-airport" data-title="Airport Pick-Up Process">
+  <div class="card">
+    <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:16px;">Your Pick-Up Process</div>
+    <div style="margin-bottom:16px;"><div style="color:#c9a84c;font-weight:600;margin-bottom:5px;">24 Hours Before Your Trip</div><div style="font-size:13px;color:#8896b3;line-height:1.7;">You will receive a text message confirming the details of your pick-up so everything is set before you travel.</div></div>
+    <div style="margin-bottom:16px;"><div style="color:#c9a84c;font-weight:600;margin-bottom:5px;">When Your Driver is En Route</div><div style="font-size:13px;color:#8896b3;line-height:1.7;">You will receive a text with your driver's contact information and a live vehicle tracking link so you can follow along in real time.</div></div>
+    <div style="margin-bottom:16px;"><div style="color:#c9a84c;font-weight:600;margin-bottom:5px;">Upon Landing</div><div style="font-size:13px;color:#8896b3;line-height:1.7;">You'll receive another message with the driver's name, phone number, and updated tracking info. Your driver will also reach out to you directly to coordinate the pick-up.</div></div>
+    <div style="margin-bottom:16px;"><div style="color:#c9a84c;font-weight:600;margin-bottom:5px;">Take Your Time</div><div style="font-size:13px;color:#8896b3;line-height:1.7;">Our drivers understand you need to deplane, may visit the restroom, and collect your luggage. There is no need to rush.</div></div>
+    <div style="margin-bottom:16px;"><div style="color:#c9a84c;font-weight:600;margin-bottom:5px;">At LAX — Finding Your Pick-Up Point</div><div style="font-size:13px;color:#8896b3;line-height:1.7;">When you exit baggage claim, you'll notice designated pick-up points marked on the pillars — for example B1, B2, B3. Head to the nearest one.</div></div>
+    <div><div style="color:#c9a84c;font-weight:600;margin-bottom:5px;">Connecting With Your Driver</div><div style="font-size:13px;color:#8896b3;line-height:1.7;">Let your driver know which pillar you're at. You can also share what you're wearing to make it easier to spot you. Your driver will call or text when approaching.</div></div>
+  </div>
+  <div class="card" style="background:rgba(201,168,76,0.06);border-color:rgba(201,168,76,0.25);">
+    <div style="font-size:13px;color:#c9a84c;font-weight:600;margin-bottom:6px;">Questions?</div>
+    <div style="font-size:13px;color:#8896b3;line-height:1.6;">Don't hesitate to reach out. We're always available to help make your trip as smooth as possible.</div>
+  </div>
+</div>
+
+<div id="info-faq" data-title="FAQ">
+  <div class="card">
+    <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">How far in advance should I book?</div>
+    <div style="font-size:13px;color:#8896b3;line-height:1.6;margin-bottom:16px;">We recommend at least 24 hours in advance, but we do our best to accommodate last-minute requests. The sooner the better for peak travel days.</div>
+    <div class="div"></div>
+    <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">What areas do you serve?</div>
+    <div style="font-size:13px;color:#8896b3;line-height:1.6;margin-bottom:16px;">We serve the greater Los Angeles area including LAX, all major cruise ports, Disneyland, and special events throughout Southern California.</div>
+    <div class="div"></div>
+    <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">What if my flight is delayed?</div>
+    <div style="font-size:13px;color:#8896b3;line-height:1.6;margin-bottom:16px;">We track all flights in real time. If your flight is delayed, your driver adjusts automatically at no extra charge.</div>
+    <div class="div"></div>
+    <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">Do you offer car seats?</div>
+    <div style="font-size:13px;color:#8896b3;line-height:1.6;margin-bottom:16px;">Yes! Just request a car seat or booster when booking and we will have one ready.</div>
+    <div class="div"></div>
+    <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">How do I pay?</div>
+    <div style="font-size:13px;color:#8896b3;line-height:1.6;margin-bottom:16px;">Payment is handled securely through our booking system. We accept all major credit cards.</div>
+    <div class="div"></div>
+    <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">Can I book for a group?</div>
+    <div style="font-size:13px;color:#8896b3;line-height:1.6;">Absolutely. We accommodate groups of all sizes. Just let us know the passenger count when booking.</div>
+  </div>
+</div>
+
+<div id="info-about" data-title="About Us">
+  <div class="card">
+    <div style="text-align:center;padding:4px 0 16px;">
+      <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#c9a84c;margin-bottom:10px;">Comfortable. Safe. Reliable.</div>
+      <div style="font-size:14px;color:#fff;line-height:1.75;">Thomas Transportation is a private transportation service based in the Los Angeles area, specializing in airport transfers, Disneyland trips, cruise port pickups, and special events throughout Southern California.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:10px;">Our Commitment</div>
+    <div style="font-size:13px;color:#8896b3;line-height:1.75;margin-bottom:12px;">Every ride is handled with the same level of care — whether you are heading to LAX for an early morning flight or bringing the family to Disneyland. We believe getting there should be just as comfortable as the destination.</div>
+    <div style="font-size:13px;color:#8896b3;line-height:1.75;">We track your flights, communicate proactively, and show up on time — every time.</div>
+  </div>
+  <div class="card" style="background:rgba(201,168,76,0.06);border-color:rgba(201,168,76,0.25);">
+    <div style="font-size:13px;color:#c9a84c;font-weight:600;margin-bottom:8px;">Every Ride. Every Traveler. Every Occasion.</div>
+    <div style="font-size:13px;color:#8896b3;line-height:1.65;">From solo travelers to large groups, from quick airport runs to full-day event transportation — Thomas Transportation is here for all of it.</div>
+  </div>
+</div>
+
+</div>
 </body>
 </html>
